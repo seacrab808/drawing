@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'NostalgicPoliceFairness';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/Griun_PolFairness-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'THEdoodle';
+  src: url('/fonts/THEDoodle.woff2') format('woff2'),
+       url('/fonts/THEDoodle.woff') format('woff'),
+       url('/fonts/THEDoodle.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: 'THEdoodle', 'Caveat', 'NostalgicPoliceFairness', 'Malgun Gothic', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3d3225;
+  background-color: #F4EDE3;
+  /* draw a day palette */
+  --color-bg: #F4EDE3;
+  --color-bg-grid: rgba(0, 0, 0, 0.04);
+  --color-accent: #DD9CA7;
+  --color-landing-gray: #AEAEAE;
+  --color-brown: #5C4F4F;
+  --color-brown-light: #8a7a7a;
+  --color-white: #ffffff;
+  --color-pastel-pink: #DD9CA7;
+  --radius-soft: 24px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  caret-color: transparent;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  caret-color: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #1a1a1a;
+}
+
+#root {
+  width: 375px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  background-color: var(--color-bg);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-brown);
+  outline-offset: 2px;
+}
+
+a {
+  color: inherit;
+}
+
+/* 공통 그리드 배경 (랜딩과 동일한 손그림 그리드) */
+.page-grid-bg {
+  background-color: #F9F7F4;
+  background-image: url('/grid-bg.png');
+  background-repeat: repeat;
+  background-size: auto;
+}

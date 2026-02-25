@@ -1,0 +1,163 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-grid: #f0f0f0;
+  --color-brown: #54473F;
+  --color-accent: #E89E9E;
+  --color-white: #ffffff;
+  --radius-soft: 35px;
+}
+
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F9F7F4; /* 하단 베이지 톤 */
+  overflow-x: hidden;
+}
+
+.welcome-top {
+  width: 100%;
+  padding: 60px 24px 0;
+  background-color: var(--color-bg);
+  background-image: url('/grid-bg.png');
+  background-repeat: repeat;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* 이미지와 유사한 완만한 곡선 경계 */
+  border-bottom-left-radius: 50% 40px;
+  border-bottom-right-radius: 50% 40px;
+  z-index: 1;
+}
+
+/* 구름 타이틀 영역 */
+.welcome-cloud-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.welcome-cloud-img {
+  width: 260px; /* 구름 크기 확보 */
+  height: auto;
+  display: block;
+}
+
+.welcome-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+  font-family: 'THEdoodle', 'Caveat', cursive;
+  margin: 0;
+}
+
+.welcome-hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 280px; /* 토끼가 커진 만큼 높이 확보 */
+}
+
+/* 시계 위치 */
+.welcome-clock {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  width: 80px;
+  z-index: 1;
+}
+
+/* 달력 위치 */
+.welcome-calendar-img {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 70px;
+  z-index: 1;
+}
+
+/* 토끼 위치 - 더 크게, 중앙에서 살짝 왼쪽으로 */
+.welcome-rabbit-wrap {
+  position: absolute;
+  left: 36%; /* 50%에서 왼쪽으로 이동 */
+  bottom: -70px; /* 하단 경계선에 더 깊게 걸치도록 */
+  transform: translateX(-50%);
+  width: 280px; /* 토끼 크기 확대 */
+  z-index: 3;
+}
+
+.welcome-rabbit-img {
+  width: 100%;
+  height: auto;
+}
+
+.welcome-bottom {
+  flex: 1;
+  width: 100%;
+  /* 토끼 발 부분이 가려지지 않도록 상단 여유 확보 */
+  padding: 80px 24px 30px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.welcome-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: var(--radius-soft);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.1s, opacity 0.2s;
+  font-family: 'THEdoodle', 'Caveat', inherit;
+  box-sizing: border-box;
+}
+
+.welcome-btn-primary {
+  background: var(--color-brown);
+  color: #ffffff;
+  border: none;
+}
+
+.welcome-btn-outline {
+  background: #ffffff;
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
+}
+
+.welcome-guest {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 12px;
+  font-family: 'THEdoodle', 'Caveat', inherit;
+  cursor: pointer;
+}
+
+.welcome-footer {
+  margin-top: auto;
+  padding: 40px 0 20px;
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-family: 'THEdoodle', 'Caveat', inherit;
+}

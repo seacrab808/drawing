@@ -1,0 +1,175 @@
+.diary-write-page {
+  min-height: 100vh;
+  padding: 16px 16px 100px;
+}
+
+.diary-write-paper {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border: 2px solid rgba(92, 79, 79, 0.15);
+  border-radius: var(--radius-soft);
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(92, 79, 79, 0.08);
+  position: relative;
+}
+
+.diary-write-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 12px,
+    rgba(229, 115, 115, 0.2) 12px,
+    rgba(229, 115, 115, 0.2) 13px
+  );
+  border-radius: 22px 22px 0 0;
+}
+
+.diary-write-section {
+  margin-bottom: 22px;
+}
+
+.diary-write-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0 0 8px;
+  font-family: inherit;
+}
+
+.diary-write-date {
+  font-size: 1rem;
+  color: var(--color-brown);
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--color-bg);
+  border: 1px dashed rgba(92, 79, 79, 0.25);
+  border-radius: 10px;
+}
+
+.diary-write-draw-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--color-bg);
+  border: 2px solid rgba(92, 79, 79, 0.2);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-brown);
+  cursor: pointer;
+}
+
+.diary-write-draw-btn:hover {
+  background: rgba(229, 115, 115, 0.08);
+  border-color: rgba(229, 115, 115, 0.35);
+}
+
+.diary-write-preview {
+  margin-top: 12px;
+  border: 2px solid rgba(92, 79, 79, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  max-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.diary-write-preview img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+.diary-write-weather {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diary-write-weather-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  min-width: 64px;
+  background: var(--color-white);
+  border: 2px solid rgba(92, 79, 79, 0.15);
+  border-radius: 14px;
+  font-size: 0.8rem;
+  color: var(--color-brown);
+  cursor: pointer;
+}
+
+.diary-write-weather-btn:hover {
+  border-color: var(--color-accent);
+  background: rgba(229, 115, 115, 0.06);
+}
+
+.diary-write-weather-btn.active {
+  border-color: var(--color-accent);
+  background: rgba(229, 115, 115, 0.12);
+  font-weight: 700;
+  color: var(--color-brown);
+}
+
+.diary-write-weather-emoji {
+  font-size: 1.4rem;
+}
+
+.diary-write-text {
+  width: 100%;
+  min-height: 140px;
+  padding: 14px;
+  border: 2px solid rgba(92, 79, 79, 0.2);
+  border-radius: 14px;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: var(--color-white);
+  color: var(--color-brown);
+  resize: vertical;
+  font-family: inherit;
+}
+
+.diary-write-text::placeholder {
+  color: var(--color-brown-light);
+}
+
+.diary-write-save {
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  background: var(--color-brown);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-soft);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(92, 79, 79, 0.25);
+}
+
+@media (min-width: 768px) {
+  .diary-write-page {
+    padding: 24px 24px 120px;
+  }
+  .diary-write-paper {
+    padding: 32px;
+  }
+  .diary-write-weather-btn {
+    min-width: 72px;
+    padding: 12px;
+  }
+  .diary-write-weather-emoji {
+    font-size: 1.6rem;
+  }
+}

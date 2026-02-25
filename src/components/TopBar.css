@@ -1,0 +1,78 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253, 235, 238, 0.4);
+  border-bottom: 1px solid rgba(92, 79, 79, 0.1);
+  box-shadow: 0 2px 12px rgba(92, 79, 79, 0.04);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 8px 16px;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.topbar-back {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid rgba(92, 79, 79, 0.25);
+  border-radius: 14px;
+  font-size: 1.25rem;
+  color: var(--color-brown);
+  cursor: pointer;
+}
+
+.topbar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.topbar-title-left {
+  text-align: left;
+  color: #DD9CA7;
+  font-family: 'THEdoodle', 'Caveat', cursive;
+}
+
+.topbar-spacer {
+  width: 40px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-share-btn {
+  padding: 8px 14px;
+  background: var(--color-brown);
+  color: var(--color-white);
+  border: none;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .topbar-inner {
+    min-height: 56px;
+    padding: 12px 24px;
+  }
+  .topbar-title {
+    font-size: 1.25rem;
+  }
+}
