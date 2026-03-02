@@ -31,8 +31,9 @@ export default function DrawingCanvas() {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
-    const w = Math.min(rect.width, 700);
-    const h = Math.min(rect.height, 500);
+    const size = Math.min(rect.width, rect.height, 700);
+    const w = size;
+    const h = size;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     canvas.style.width = w + 'px';
@@ -108,7 +109,15 @@ export default function DrawingCanvas() {
 
   return (
     <>
-      <TopBar title="그림 그리기" showBack />
+      <TopBar
+        title="그림 그리기"
+        showBack
+        rightButton={
+          <button type="button" className="topbar-save-btn" onClick={handleDone}>
+            저장하기 ✓
+          </button>
+        }
+      />
       <main className="drawing-canvas-page page-grid-bg">
         <div className="drawing-canvas-wrap">
           <canvas
@@ -150,9 +159,6 @@ export default function DrawingCanvas() {
             ))}
           </div>
         </div>
-        <button type="button" className="drawing-done" onClick={handleDone}>
-          그리기 완료
-        </button>
       </main>
     </>
   );

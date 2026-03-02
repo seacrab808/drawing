@@ -15,8 +15,6 @@ import DrawingCanvas from './pages/DrawingCanvas';
 import DiaryDetail from './pages/DiaryDetail';
 import More from './pages/More';
 import Favorites from './pages/Favorites';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
 
 function LoadUserDiaries() {
   const { currentUser } = useAuth();
@@ -84,22 +82,6 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <Favorites />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/settings"
-        element={
-          <ProtectedRoute>
-            <Settings />
           </ProtectedRoute>
         }
       />

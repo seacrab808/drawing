@@ -10,37 +10,40 @@
 .drawing-canvas-wrap {
   width: 100%;
   max-width: 700px;
-  border: 2px solid rgba(92, 79, 79, 0.2);
-  border-radius: var(--radius-soft);
+  border: 2px solid rgba(221, 156, 167, 0.45);
+  border-radius: 16px;
   overflow: hidden;
   background: var(--color-white);
-  box-shadow: 0 4px 20px rgba(92, 79, 79, 0.08);
+  box-shadow: 0 2px 16px rgba(221, 156, 167, 0.1);
 }
 
 .drawing-canvas {
   display: block;
   width: 100%;
+  aspect-ratio: 1;
   height: auto;
-  max-height: 50vh;
   touch-action: none;
   cursor: crosshair;
 }
 
+/* 색상 + 도구 영역 */
 .drawing-palette {
   width: 100%;
   max-width: 700px;
-  padding: 12px;
-  background: var(--color-white);
-  border: 2px solid rgba(92, 79, 79, 0.15);
-  border-radius: var(--radius-soft);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(221, 156, 167, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(221, 156, 167, 0.06);
 }
 
 .drawing-palette-label,
 .drawing-tools-label {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-brown);
+  color: #D38290;
   margin: 0 0 10px;
+  font-family: 'THEdoodle', 'Caveat', cursive;
 }
 
 .drawing-palette-colors {
@@ -52,69 +55,79 @@
 .drawing-palette-swatch {
   width: 32px;
   height: 32px;
-  border: 2px solid rgba(92, 79, 79, 0.2);
-  border-radius: 10px;
+  border: 2px solid rgba(221, 156, 167, 0.3);
+  border-radius: 50%;
   cursor: pointer;
   padding: 0;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.drawing-palette-swatch:hover {
+  transform: scale(1.08);
 }
 
 .drawing-palette-swatch.active {
-  border-color: var(--color-brown);
-  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-brown);
+  border-color: #DD9CA7;
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 4px #DD9CA7;
 }
 
 .drawing-tools {
   width: 100%;
   max-width: 700px;
-  padding: 12px;
-  background: var(--color-white);
-  border: 2px solid rgba(92, 79, 79, 0.15);
-  border-radius: var(--radius-soft);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(221, 156, 167, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(221, 156, 167, 0.06);
 }
 
 .drawing-tools-btns {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .drawing-tool-btn {
-  padding: 10px 18px;
-  background: var(--color-bg);
-  border: 2px solid rgba(92, 79, 79, 0.2);
+  padding: 12px 20px;
+  background: var(--color-white);
+  border: 2px solid rgba(174, 174, 174, 0.35);
   border-radius: 14px;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-brown);
   cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
 }
 
 .drawing-tool-btn:hover {
-  background: rgba(229, 115, 115, 0.08);
+  border-color: rgba(221, 156, 167, 0.5);
+  background: rgba(221, 156, 167, 0.06);
 }
 
 .drawing-tool-btn.active {
-  background: var(--color-brown);
-  color: var(--color-white);
-  border-color: var(--color-brown);
+  border-color: #DD9CA7;
+  background: rgba(221, 156, 167, 0.15);
+  color: var(--color-brown);
 }
 
 .drawing-done {
-  padding: 16px 32px;
-  background: var(--color-brown);
+  padding: 14px 28px;
+  background: #DD9CA7;
   color: var(--color-white);
   border: none;
-  border-radius: var(--radius-soft);
+  border-radius: 16px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(92, 79, 79, 0.25);
+  font-family: 'THEdoodle', 'Caveat', cursive;
+  transition: background 0.2s;
+}
+
+.drawing-done:hover {
+  background: #D38290;
 }
 
 @media (min-width: 768px) {
-  .drawing-canvas {
-    max-height: 55vh;
-  }
   .drawing-palette-swatch {
     width: 36px;
     height: 36px;

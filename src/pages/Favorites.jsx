@@ -12,7 +12,7 @@ export default function Favorites() {
   return (
     <>
       <TopBar title="즐겨찾기" showBack />
-      <main className="favorites-page page-grid-bg">
+      <main className="favorites-page page-grid-bg page-transition">
         {favorites.length === 0 ? (
           <p className="favorites-empty">즐겨찾기한 일기가 없어요.</p>
         ) : (

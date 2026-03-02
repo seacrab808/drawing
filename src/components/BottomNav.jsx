@@ -15,16 +15,10 @@ const IconCalendar = () => (
   </svg>
 );
 
-const IconSettings = () => (
-  <svg width="28" height="27" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 11.7085H10.5V16.3335H6V11.7085Z" fill="currentColor"/>
-    <path d="M6 19.4165H10.5V24.0415H6V19.4165Z" fill="currentColor"/>
-    <path d="M6 27.125H10.5V31.75H6V27.125Z" fill="currentColor"/>
-    <path d="M13.5 11.7085H30V16.3335H13.5V11.7085Z" fill="currentColor"/>
-    <path d="M13.5 19.4165H30V24.0415H13.5V19.4165Z" fill="currentColor"/>
-    <path d="M13.5 27.125H30V31.75H13.5V27.125Z" fill="currentColor"/>
-    <path d="M38.0002 8.3335L37.0835 8.16683C37.0002 8.00016 37.0002 7.8335 36.9168 7.66683L37.4168 6.91683L37.8335 6.3335L35.6668 4.16683L35.0835 4.5835L34.3335 5.0835C34.1668 5.00016 34.0002 5.00016 33.8335 4.91683L33.6668 4.00016L33.5002 3.3335H30.5002L30.3335 4.00016L30.1668 4.91683C30.0002 5.00016 29.8335 5.00016 29.6668 5.0835L28.9168 4.5835L28.3335 4.25016L26.2502 6.3335L26.6668 6.91683L27.1668 7.66683C27.0002 7.8335 27.0002 8.00016 26.9168 8.16683L26.0002 8.3335L25.3335 8.50016V11.5002L26.0002 11.6668L26.9168 11.8335C27.0002 12.0002 27.0002 12.1668 27.0835 12.3335L26.5835 13.0835L26.1668 13.6668L28.3335 15.8335L28.9168 15.4168L29.6668 14.9168C29.8335 15.0002 30.0002 15.0002 30.1668 15.0835L30.3335 16.0002L30.5002 16.6668H33.5002L33.6668 16.0002L33.8335 15.0835C34.0002 15.0002 34.1668 15.0002 34.3335 14.9168L35.0835 15.4168L35.6668 15.8335L37.8335 13.6668L37.4168 13.0835L36.9168 12.3335C37.0002 12.1668 37.0835 12.0002 37.0835 11.8335L38.0002 11.6668L38.6668 11.5002V8.50016L38.0002 8.3335ZM37.8335 10.8335L36.4168 11.0835C36.3335 11.5002 36.1668 11.9168 35.9168 12.3335L36.6668 13.5002L35.5002 14.6668L34.3335 13.9168C33.9168 14.1668 33.5002 14.3335 33.0835 14.4168L32.8335 15.8335H31.1668L30.9168 14.4168C30.5002 14.3335 30.0835 14.1668 29.6668 13.9168L28.5002 14.6668L27.3335 13.5002L28.0835 12.3335C27.8335 11.9168 27.6668 11.5002 27.5835 11.0835L26.1668 10.8335V9.16683L27.5835 8.91683C27.6668 8.50016 27.8335 8.0835 28.0835 7.66683L27.2502 6.50016L28.4168 5.3335L29.5835 6.0835C30.0002 5.8335 30.4168 5.66683 30.8335 5.5835L31.1668 4.16683H32.8335L33.0835 5.5835C33.5002 5.66683 33.9168 5.8335 34.3335 6.0835L35.5002 5.3335L36.6668 6.50016L35.9168 7.66683C36.1668 8.0835 36.3335 8.50016 36.4168 8.91683L37.8335 9.16683V10.8335Z" fill="currentColor"/>
-    <path d="M32.0002 7.0835C30.4168 7.0835 29.0835 8.41683 29.0835 10.0002C29.0835 11.5835 30.4168 12.9168 32.0002 12.9168C33.5835 12.9168 34.9168 11.5835 34.9168 10.0002C34.9168 8.41683 33.5835 7.0835 32.0002 7.0835ZM32.0002 12.0835C30.8335 12.0835 29.9168 11.1668 29.9168 10.0002C29.9168 8.8335 30.8335 7.91683 32.0002 7.91683C33.1668 7.91683 34.0835 8.8335 34.0835 10.0002C34.0835 11.1668 33.1668 12.0835 32.0002 12.0835Z" fill="currentColor"/>
+/** 더보기 탭용 아이콘 (리스트/메뉴) */
+const IconMore = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <path d="M4 6h16v1.5H4V6zm0 5.25h16v1.5H4v-1.5zm0 5.25h16V18H4v-1.5z" fill="currentColor"/>
   </svg>
 );
 
@@ -33,6 +27,7 @@ export default function BottomNav() {
   const today = new Date();
   const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   const isDiaryActive = location.pathname.startsWith('/diary');
+  const isMoreActive = location.pathname === '/more' || location.pathname === '/favorites';
 
   return (
     <nav className="bottom-nav" role="navigation" aria-label="하단 메뉴">
@@ -43,7 +38,6 @@ export default function BottomNav() {
         <span className="bottom-nav-icon" aria-hidden>
           <IconPalette />
         </span>
-        <span className="bottom-nav-label">그림일기</span>
       </NavLink>
       <NavLink
         to="/"
@@ -53,17 +47,15 @@ export default function BottomNav() {
         <span className="bottom-nav-icon" aria-hidden>
           <IconCalendar />
         </span>
-        <span className="bottom-nav-label">홈</span>
       </NavLink>
       <NavLink
         to="/more"
-        className={({ isActive }) => `bottom-nav-item ${isActive ? 'active' : ''}`}
+        className={() => `bottom-nav-item ${isMoreActive ? 'active' : ''}`}
         end
       >
         <span className="bottom-nav-icon" aria-hidden>
-          <IconSettings />
+          <IconMore />
         </span>
-        <span className="bottom-nav-label">더보기</span>
       </NavLink>
     </nav>
   );

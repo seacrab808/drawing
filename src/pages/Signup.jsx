@@ -1,15 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { PROFILE_CHARACTERS } from '../constants/profileCharacters';
 import './Auth.css';
-
-const PROFILE_CHARACTERS = [
-  { id: 'rabbit', src: '/landing-rabbit.svg', label: '토끼' },
-  { id: 'bear', src: '/profile-bear.svg', label: '곰' },
-  { id: 'cat', src: '/profile-cat.svg', label: '고양이' },
-  { id: 'dog', src: '/profile-dog.svg', label: '강아지' },
-  { id: 'chick', src: '/profile-chick.svg', label: '병아리' },
-];
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -21,8 +14,21 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [showProfilePicker, setShowProfilePicker] = useState(false);
+  const fileInputRef = useRef(null);
   const { signup, checkIdDuplicate } = useAuth();
   const navigate = useNavigate();
+
+  const handleGallerySelect = (e) => {
+    const file = e.target.files?.[0];
+    if (!file || !file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      setSelectedProfile(reader.result);
+      setShowProfilePicker(false);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
 
   const handleCheckId = () => {
     const trimmed = id.trim();
@@ -64,7 +70,7 @@ export default function Signup() {
       setError('비밀번호가 일치하지 않아요.');
       return;
     }
-    signup(name.trim(), id.trim(), password, selectedProfile);
+    signup(name.trim(), id.trim(), password, selectedProfile || null);
     navigate('/', { replace: true });
   };
 
@@ -103,6 +109,21 @@ export default function Signup() {
                   </button>
                 ))}
               </div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="auth-profile-gallery-input"
+                aria-label="갤러리에서 선택"
+                onChange={handleGallerySelect}
+              />
+              <button
+                type="button"
+                className="auth-profile-gallery-btn"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                갤러리에서 선택
+              </button>
             </div>
           )}
           <form onSubmit={handleSubmit} className="auth-form">

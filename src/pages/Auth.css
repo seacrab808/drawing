@@ -268,6 +268,33 @@
   box-shadow: 0 0 0 2px rgba(211, 130, 144, 0.3);
 }
 
+.auth-profile-gallery-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth-profile-gallery-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: rgba(221, 156, 167, 0.2);
+  color: #DD9CA7;
+  border: 2px solid #DD9CA7;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.auth-profile-gallery-btn:hover {
+  background: rgba(221, 156, 167, 0.3);
+}
+
 @media (min-width: 768px) {
   .auth-page {
     padding: 56px 24px 40px;

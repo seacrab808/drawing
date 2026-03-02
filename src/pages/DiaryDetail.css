@@ -1,6 +1,7 @@
 .diary-detail-page {
   min-height: 100vh;
   padding: 16px 16px 100px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .diary-detail-missing {
@@ -12,90 +13,193 @@
 .diary-detail-paper {
   max-width: 520px;
   margin: 0 auto;
-  background: var(--color-white);
-  border: 2px solid rgba(92, 79, 79, 0.15);
-  border-radius: var(--radius-soft);
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(92, 79, 79, 0.08);
+  background: transparent;
+  padding: 0;
+}
+
+/* 제목·날씨·그림·글 네모 박스 공통 */
+.diary-detail-date,
+.diary-detail-title-block,
+.diary-detail-weather-wrap,
+.diary-detail-drawing,
+.diary-detail-text-wrap {
+  background: rgba(255, 254, 249, 0.95);
+  border: 2px solid rgba(221, 156, 167, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(221, 156, 167, 0.08);
 }
 
 .diary-detail-date {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-brown);
-  margin: 0 0 16px;
+  color: #D38290;
+  margin: 0 0 12px;
+  padding: 14px 18px;
+  font-family: 'THEdoodle', 'Caveat', cursive;
 }
 
-.diary-detail-drawing {
-  border: 2px solid rgba(92, 79, 79, 0.12);
-  border-radius: 14px;
+.diary-detail-title-block {
+  margin: 0 0 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.diary-detail-title-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #D38290;
+  flex-shrink: 0;
+  font-family: 'THEdoodle', 'Caveat', cursive;
+}
+
+.diary-detail-title-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #D38290;
+  font-family: 'THEdoodle', 'Caveat', cursive;
   overflow: hidden;
-  margin-bottom: 16px;
-  background: var(--color-bg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  cursor: pointer;
+  transition: white-space 0.15s ease;
+}
+
+.diary-detail-title-text.expanded {
+  white-space: pre-wrap;
+  text-overflow: clip;
+  word-break: break-word;
+}
+
+/* 그림 영역 */
+.diary-detail-drawing {
+  overflow: hidden;
+  margin-bottom: 12px;
+  padding: 12px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .diary-detail-drawing img {
   width: 100%;
+  min-height: 280px;
+  max-height: 65vh;
+  object-fit: contain;
   display: block;
+  border-radius: 8px;
 }
 
-.diary-detail-weather {
-  font-size: 1rem;
-  color: var(--color-brown);
+.diary-detail-weather-wrap {
   margin: 0 0 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.diary-detail-weather-icon {
+  font-size: 2rem;
+  line-height: 1;
+  display: inline-block;
+}
+
+.diary-detail-text-wrap {
+  margin-bottom: 24px;
+  padding: 16px 18px;
 }
 
 .diary-detail-text {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: var(--color-brown);
   white-space: pre-wrap;
-  margin-bottom: 24px;
-  padding: 12px 0;
-  border-top: 1px dashed rgba(92, 79, 79, 0.2);
+  margin: 0;
+  font-family: 'THEdoodle', 'Caveat', cursive;
 }
 
 .diary-detail-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  justify-content: center;
 }
 
 .diary-detail-btn {
-  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
   border-radius: 14px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
-  border: 2px solid rgba(92, 79, 79, 0.2);
-  background: var(--color-white);
-  color: var(--color-brown);
+  border: none;
+  font-family: 'THEdoodle', 'Caveat', cursive;
+  transition: opacity 0.2s;
 }
 
-.diary-detail-btn.favorite {
-  background: rgba(229, 115, 115, 0.08);
-  border-color: rgba(229, 115, 115, 0.25);
+.diary-detail-btn span {
+  flex: 1;
 }
 
 .diary-detail-btn.edit {
-  background: var(--color-bg);
+  background: #DD9CA7;
+  color: var(--color-white);
+}
+
+.diary-detail-btn.edit:hover {
+  opacity: 0.92;
 }
 
 .diary-detail-btn.delete {
-  background: rgba(200, 80, 80, 0.08);
-  border-color: rgba(200, 80, 80, 0.3);
-  color: #a04040;
+  background: rgba(92, 79, 79, 0.55);
+  color: var(--color-white);
 }
 
 .diary-detail-btn.delete:hover {
-  background: rgba(200, 80, 80, 0.12);
+  opacity: 0.92;
+}
+
+/* 상단바 아이콘 버튼 (하트, 공유) */
+.diary-detail-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.topbar-icon-btn:hover {
+  background: rgba(221, 156, 167, 0.15);
+}
+
+.topbar-icon-btn svg {
+  display: block;
 }
 
 @media (min-width: 768px) {
   .diary-detail-page {
     padding: 24px 24px 120px;
   }
-  .diary-detail-paper {
-    padding: 32px;
+  .diary-detail-drawing img {
+    min-height: 320px;
+    max-height: 70vh;
   }
 }

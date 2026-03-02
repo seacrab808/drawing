@@ -16,6 +16,7 @@
   min-height: 56px;
   z-index: 90;
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease, opacity 0.35s ease;
 }
 
 .bottom-nav-item {
@@ -29,7 +30,7 @@
   text-decoration: none;
   color: #AEAEAE;
   border-radius: 0;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, padding 0.35s ease, margin 0.35s ease, transform 0.35s ease, opacity 0.35s ease;
   background: transparent;
   border-top: 4px solid transparent;
 }

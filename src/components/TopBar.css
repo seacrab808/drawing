@@ -5,14 +5,21 @@
   background: rgba(253, 235, 238, 0.4);
   border-bottom: 1px solid rgba(92, 79, 79, 0.1);
   box-shadow: 0 2px 12px rgba(92, 79, 79, 0.04);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topbar-scrolled {
+  background: rgba(253, 235, 238, 0.98);
+  box-shadow: 0 2px 12px rgba(92, 79, 79, 0.08);
 }
 
 .topbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 48px;
-  padding: 8px 16px;
+  height: 56px;
+  min-height: 56px;
+  padding: 0 16px;
   max-width: 768px;
   margin: 0 auto;
 }
@@ -24,17 +31,22 @@
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 2px solid rgba(92, 79, 79, 0.25);
+  border: none;
   border-radius: 14px;
-  font-size: 1.25rem;
-  color: var(--color-brown);
+  color: #DD9CA7;
   cursor: pointer;
+  padding: 0;
+}
+
+.topbar-back-icon {
+  display: block;
+  color: inherit;
 }
 
 .topbar-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-brown);
+  color: #DD9CA7;
   margin: 0;
   flex: 1;
   text-align: center;
@@ -44,6 +56,14 @@
   text-align: left;
   color: #DD9CA7;
   font-family: 'THEdoodle', 'Caveat', cursive;
+}
+
+.topbar-inner-title-left {
+  padding-left: 8px;
+}
+
+.topbar-inner-title-left .topbar-spacer:first-of-type {
+  width: 8px;
 }
 
 .topbar-spacer {
@@ -67,10 +87,27 @@
   cursor: pointer;
 }
 
+.topbar-save-btn {
+  padding: 8px 14px;
+  background: #DD9CA7;
+  color: var(--color-white);
+  border: none;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.topbar-save-btn:hover {
+  background: #D38290;
+}
+
 @media (min-width: 768px) {
   .topbar-inner {
+    height: 56px;
     min-height: 56px;
-    padding: 12px 24px;
+    padding: 0 24px;
   }
   .topbar-title {
     font-size: 1.25rem;

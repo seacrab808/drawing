@@ -1,21 +1,512 @@
 .settings-page {
   min-height: 100vh;
-  padding: 24px 16px;
+  padding: 24px 16px 100px;
 }
 
-.settings-paper {
+.settings-wrap {
   max-width: 480px;
   margin: 0 auto;
+}
+
+.settings-card {
   background: var(--color-white);
-  border: 2px solid rgba(92, 79, 79, 0.12);
+  border: 2px solid rgba(92, 79, 79, 0.08);
   border-radius: var(--radius-soft);
-  padding: 24px;
+  padding: 20px;
+  margin-bottom: 14px;
   box-shadow: 0 4px 20px rgba(92, 79, 79, 0.06);
 }
 
-.settings-desc {
+/* 프로필 카드 */
+.settings-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.settings-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid rgba(221, 156, 167, 0.2);
+  overflow: visible;
+}
+
+.settings-avatar-wrap:hover .settings-avatar-edit-icon {
+  opacity: 1;
+}
+
+.settings-avatar-edit-icon {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.settings-avatar-edit-icon svg {
+  display: block;
+}
+
+.settings-avatar-wrap .settings-avatar {
+  border: none;
+}
+
+.settings-avatar {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 50%;
+  background: rgba(221, 156, 167, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(221, 156, 167, 0.15);
+}
+
+.settings-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.settings-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-profile-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0 0 4px;
+}
+
+.settings-profile-email {
+  font-size: 0.9rem;
+  color: var(--color-brown-light);
+  margin: 0 0 4px;
+}
+
+.settings-profile-badge {
+  font-size: 0.85rem;
+  color: var(--color-brown-light);
+  margin: 0;
+}
+
+.settings-profile-more {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.8;
+  position: relative;
+}
+
+/* 프로필 점세개 드롭다운 */
+.settings-profile-card {
+  position: relative;
+}
+
+.settings-profile-menu {
+  position: absolute;
+  top: 110%;
+  right: 40px;
+  transform: translateY(-50%);
+  min-width: 160px;
+  background: var(--color-white);
+  border: 2px solid rgba(92, 79, 79, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(92, 79, 79, 0.12);
+  padding: 6px 0;
+  z-index: 50;
+  list-style: none;
+  margin-left: 0;
+}
+
+.settings-profile-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-brown);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.settings-profile-menu button:hover {
+  background: rgba(221, 156, 167, 0.1);
+}
+
+/* 모달 공통 */
+.settings-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+}
+
+.settings-modal {
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(92, 79, 79, 0.2);
+}
+
+.settings-modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.settings-modal-body {
+  margin-bottom: 20px;
+}
+
+.settings-modal-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid rgba(92, 79, 79, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-brown);
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.settings-modal-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.settings-modal-input::placeholder {
+  color: var(--color-brown-light);
+  opacity: 0.7;
+}
+
+.settings-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.settings-modal-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.settings-modal-btn-primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.settings-modal-btn-primary:hover {
+  background: rgba(221, 156, 167, 0.85);
+}
+
+.settings-modal-btn-secondary {
+  background: rgba(92, 79, 79, 0.2);
+  color: var(--color-brown);
+}
+
+.settings-modal-btn-secondary:hover {
+  background: rgba(92, 79, 79, 0.3);
+}
+
+.settings-modal-msg {
+  text-align: center;
   font-size: 1rem;
   color: var(--color-brown);
-  line-height: 1.6;
-  margin: 0;
+  margin: 0 0 20px;
+}
+
+.settings-modal-icon {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 12px;
+  color: var(--color-brown-light);
+}
+
+.settings-name-done-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  background: rgba(221, 156, 167, 0.25);
+  color: var(--color-accent);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* 프로필 사진 변경 모달 */
+.settings-profile-modal .settings-profile-picker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.settings-profile-picker-btn {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 2px solid rgba(221, 156, 167, 0.5);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.settings-profile-picker-btn:hover {
+  transform: scale(1.05);
+  border-color: var(--color-accent);
+}
+
+.settings-profile-picker-btn img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.settings-profile-picker-btn-selected {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(221, 156, 167, 0.3);
+}
+
+.settings-profile-gallery-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.settings-profile-gallery-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: rgba(221, 156, 167, 0.15);
+  color: var(--color-accent);
+  border: 2px solid rgba(221, 156, 167, 0.5);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.settings-profile-gallery-btn:hover {
+  background: rgba(221, 156, 167, 0.25);
+}
+
+/* 나의 기록 */
+.settings-records-card {
+  padding: 18px 20px;
+}
+
+.settings-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0 0 14px;
+}
+
+.settings-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+.settings-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.settings-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brown);
+}
+
+.settings-stat-label {
+  font-size: 0.8rem;
+  color: var(--color-brown-light);
+}
+
+.settings-stat-streak .settings-stat-num-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.settings-stat-streak .settings-stat-num {
+  display: block;
+}
+
+.settings-stat-celebrate {
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* 마음에 담은 일기 링크 - 흰 배경, hover 시 살짝 연핑크만 */
+.settings-link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-brown);
+  background: var(--color-white);
+  transition: background 0.25s ease;
+}
+
+.settings-link-card:hover {
+  background: #fff5f7;
+}
+
+.settings-link-icon {
+  font-size: 1.2rem;
+}
+
+.settings-link-text {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.settings-link-arrow {
+  font-size: 1.1rem;
+  color: var(--color-brown-light);
+}
+
+/* 기타 */
+.settings-etc-card {
+  padding: 18px 20px;
+}
+
+.settings-etc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.settings-etc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 4px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-brown);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s ease;
+  border-radius: 12px;
+}
+
+.settings-etc-item:hover {
+  background: #fff5f7;
+}
+
+.settings-etc-icon {
+  font-size: 1.1rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+.settings-etc-text {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* 로그아웃 */
+.settings-logout {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 20px auto 0;
+  padding: 14px 24px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.settings-logout:hover {
+  background: rgba(221, 156, 167, 0.85);
+}
+
+/* 버전 */
+.settings-version {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(92, 79, 79, 0.45);
+  margin: 16px 0 0;
+}
+
+@media (min-width: 768px) {
+  .settings-page {
+    padding: 24px 24px 120px;
+  }
+  .settings-profile-name {
+    font-size: 1.2rem;
+  }
+  .settings-stat-num {
+    font-size: 1.75rem;
+  }
 }
